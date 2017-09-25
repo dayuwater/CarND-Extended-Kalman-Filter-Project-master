@@ -105,7 +105,16 @@ int main()
                     iss >> vx_gt;
                     iss >> vy_gt;
                     
-                    if (sensor_type.compare("L") == 0) {
+                    
+                    // This if statement is used to test each sensor separately
+                    // Single sensor mode: use "L" for laser only, "R" for radar only, comment out "true"
+                    // Sensor Fusion mode: comment out the compare part, remove the comment for "true"
+                    // Use only Lidar : 1: [0.12, 0.10, 0.58, 0.45] , 2:[0.10, 0.10, 0.54, 0.46]
+                    // Use only Radar : 1: [0.19, 0.3, 0.55, 0.66], 2: [0.22, 0.29, 0.59, 0.73]
+                    // Sensor Fusion: 1:[0.09, 0.08, 0.45, 0.44], 2: [0.07, 0.09, 0.46, 0.5]
+                    // Make sure to restart this program for testing different datasets
+                    
+                    if (/*sensor_type.compare("R") == 0*/  true) {
                         
                         VectorXd gt_values(4);
                         gt_values(0) = x_gt;
